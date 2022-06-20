@@ -24,6 +24,8 @@ public final class TestPluginMain extends JavaPlugin {
     public void onEnable() {
         registerCommands();
         registerEvents();
+        particleManager.addParticleNamesToArray();
+
         particleMenu.setUpParticleMenu();
         Bukkit.getLogger().info("Plugin has been enabled.");
     }

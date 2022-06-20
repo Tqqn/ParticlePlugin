@@ -43,19 +43,19 @@ public class ParticleMenu {
      * setups the inventory with desired slots and sizes.
      */
     public void setUpParticleMenu() {
-        int size = plugin.getParticleManager().getParticlesMapSize();
+        int size = plugin.getParticleManager().getParticlesMapSize()+1;
 
-        if (size < 9) {
+        if (size <= 9) {
             size = 9;
-        } else if (size < 18) {
+        } else if (size <= 18) {
             size = 18;
-        } else if (size < 27) {
+        } else if (size <= 27) {
             size = 27;
-        } else if (size < 36) {
+        } else if (size <= 36) {
             size = 36;
-        }else if (size < 45) {
+        } else if (size <= 45) {
             size = 45;
-        } else if (size < 54) {
+        } else if (size <= 54) {
             size = 54;
         }
         this.inventory = Bukkit.createInventory(null, size, Color.translate("&6Particle Menu"));

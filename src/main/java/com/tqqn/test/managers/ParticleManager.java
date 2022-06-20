@@ -23,6 +23,14 @@ public class ParticleManager {
     }
 
     /**
+     * Adding Particle names to Array
+     */
+    public void addParticleNamesToArray() {
+        for (LobbyParticles lobbyParticles : LobbyParticles.values()) {
+            customParticles.add(lobbyParticles.name());
+        }
+    }
+    /**
      * Method to remove the Player from Particle Map.
      * @param player Player
      */
