@@ -1,0 +1,4 @@
+name: Test
+version: '${project.version}'
+main: Test
+api-version: 1.16
