@@ -1,6 +1,9 @@
 package com.tqqn.test;
 
 import com.tqqn.test.commands.OpenParticleMenuCommand;
+import com.tqqn.test.listeners.PlayerInventoryClickListener;
+import com.tqqn.test.listeners.PlayerMoveListener;
+import com.tqqn.test.managers.ParticleManager;
 import com.tqqn.test.menus.ParticleMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;

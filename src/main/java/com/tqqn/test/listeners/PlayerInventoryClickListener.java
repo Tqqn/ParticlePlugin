@@ -1,6 +1,8 @@
-package com.tqqn.test;
+package com.tqqn.test.listeners;
 
+import com.tqqn.test.TestPluginMain;
 import com.tqqn.test.particles.LobbyParticles;
+import com.tqqn.test.utils.Color;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

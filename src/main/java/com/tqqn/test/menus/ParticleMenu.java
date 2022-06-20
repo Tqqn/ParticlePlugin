@@ -1,6 +1,6 @@
 package com.tqqn.test.menus;
 
-import com.tqqn.test.Color;
+import com.tqqn.test.utils.Color;
 import com.tqqn.test.TestPluginMain;
 import com.tqqn.test.particles.LobbyParticles;
 import org.bukkit.Bukkit;

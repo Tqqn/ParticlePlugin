@@ -1,4 +1,4 @@
-package com.tqqn.test;
+package com.tqqn.test.managers;
 
 import com.tqqn.test.particles.LobbyParticles;
 import org.bukkit.entity.Player;

@@ -1,4 +1,4 @@
-package com.tqqn.test;
+package com.tqqn.test.utils;
 
 import org.bukkit.ChatColor;
 
