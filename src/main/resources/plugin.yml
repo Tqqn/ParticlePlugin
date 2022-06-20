@@ -1,4 +1,9 @@
 name: Test
 version: '${project.version}'
-main: Test
+main: com.tqqn.test.TestPluginMain
 api-version: 1.16
+commands:
+  particle:
+    description: Particle Menu Command
+    usage: /<command>
+    permission: lobbyplugin.particles

@@ -1,6 +1,7 @@
 package com.tqqn.test;
 
 import com.tqqn.test.commands.OpenParticleMenuCommand;
+import com.tqqn.test.listeners.OnLeaveListener;
 import com.tqqn.test.listeners.PlayerInventoryClickListener;
 import com.tqqn.test.listeners.PlayerMoveListener;
 import com.tqqn.test.managers.ParticleManager;
@@ -21,9 +22,9 @@ public final class TestPluginMain extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        particleManager.addParticleNamesToArray();
         registerCommands();
         registerEvents();
+        particleMenu.setUpParticleMenu();
         Bukkit.getLogger().info("Plugin has been enabled.");
     }
 
@@ -48,5 +49,6 @@ public final class TestPluginMain extends JavaPlugin {
         PluginManager pluginManager = Bukkit.getServer().getPluginManager();
         pluginManager.registerEvents(new PlayerMoveListener(this), this);
         pluginManager.registerEvents(new PlayerInventoryClickListener(this), this);
+        pluginManager.registerEvents(new OnLeaveListener(this), this);
     }
 }

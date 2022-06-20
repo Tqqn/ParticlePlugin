@@ -2,6 +2,7 @@ package com.tqqn.test.listeners;
 
 import com.tqqn.test.TestPluginMain;
 import com.tqqn.test.particles.LobbyParticles;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,7 +17,7 @@ public class PlayerMoveListener implements Listener {
     }
 
     @EventHandler
-    public void onLavaDrip(PlayerMoveEvent e) {
+    public void onMove(PlayerMoveEvent e) {
 
         Player player = e.getPlayer();
 
@@ -25,6 +26,19 @@ public class PlayerMoveListener implements Listener {
 
         LobbyParticles lobbyParticles = plugin.getParticleManager().getPlayerParticle(player);
 
+        if (plugin.getParticleManager().getPlayerParticle(player).getType().equals("CIRCLE")) {
+
+            Location location = player.getLocation();
+            float radius = 1;
+
+            for (double t = 0; t<50; t+=0.5) {
+                float x = radius*(float)Math.sin(t);
+                float z = radius*(float)Math.cos(t);
+                location.getWorld().spawnParticle(lobbyParticles.getParticle(), (float) location.getX() + x, (float) location.getY(), (float) location.getZ() + z, 0, 0,0,0,1);
+            }
+        } else {
             player.spawnParticle(lobbyParticles.getParticle(), player.getLocation(), lobbyParticles.getCount());
+        }
+
     }
 }
