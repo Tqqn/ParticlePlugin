@@ -10,12 +10,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class TestPluginMain extends JavaPlugin {
+public final class Particles extends JavaPlugin {
 
     private final ParticleManager particleManager;
     private final ParticleMenu particleMenu;
 
-    public TestPluginMain() {
+    public Particles() {
         this.particleManager = new ParticleManager();
         this.particleMenu = new ParticleMenu(this);
     }

@@ -1,7 +1,7 @@
 package com.tqqn.test.menus;
 
+import com.tqqn.test.Particles;
 import com.tqqn.test.utils.Color;
-import com.tqqn.test.TestPluginMain;
 import com.tqqn.test.particles.LobbyParticles;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -18,13 +18,13 @@ public class ParticleMenu {
 
     private final HashMap<ItemStack, LobbyParticles> loadedParticlesMaterial = new HashMap<>();
 
-    private final TestPluginMain plugin;
+    private final Particles plugin;
 
     /**
      * Main Constructor for class
      * @param plugin MainClass
      */
-    public ParticleMenu(TestPluginMain plugin) {
+    public ParticleMenu(Particles plugin) {
         this.plugin = plugin;
     }
 

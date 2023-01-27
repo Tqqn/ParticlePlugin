@@ -1,6 +1,6 @@
 name: Test
 version: '${project.version}'
-main: com.tqqn.test.TestPluginMain
+main: com.tqqn.test.Particles
 api-version: 1.16
 commands:
   particle:

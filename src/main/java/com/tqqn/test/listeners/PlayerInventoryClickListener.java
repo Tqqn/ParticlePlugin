@@ -1,6 +1,6 @@
 package com.tqqn.test.listeners;
 
-import com.tqqn.test.TestPluginMain;
+import com.tqqn.test.Particles;
 import com.tqqn.test.particles.LobbyParticles;
 import com.tqqn.test.utils.Color;
 import org.bukkit.Material;
@@ -8,13 +8,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.ItemStack;
 
 public class PlayerInventoryClickListener implements Listener {
 
-    private final TestPluginMain plugin;
+    private final Particles plugin;
 
-    public PlayerInventoryClickListener(TestPluginMain plugin) {
+    public PlayerInventoryClickListener(Particles plugin) {
         this.plugin = plugin;
     }
 
