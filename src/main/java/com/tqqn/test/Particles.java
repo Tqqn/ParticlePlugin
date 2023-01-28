@@ -35,18 +35,32 @@ public final class Particles extends JavaPlugin {
         Bukkit.getLogger().info("Plugin has been disabled.");
     }
 
+    /**
+     * Returns the ParticleManager.
+     * @return ParticleManager
+     */
     public ParticleManager getParticleManager() {
         return this.particleManager;
     }
 
+    /**
+     * Returns the ParticleMenu.
+     * @return ParticleMenu Object.
+     */
     public ParticleMenu getParticleMenu() {
         return this.particleMenu;
     }
 
+    /**
+     * Register the commands.
+     */
     public void registerCommands() {
         this.getCommand("particle").setExecutor(new OpenParticleMenuCommand(this));
     }
 
+    /**
+     * Register the events.
+     */
     public void registerEvents() {
         PluginManager pluginManager = Bukkit.getServer().getPluginManager();
         pluginManager.registerEvents(new PlayerMoveListener(this), this);

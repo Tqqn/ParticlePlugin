@@ -28,10 +28,10 @@ public class PlayerInventoryClickListener implements Listener {
         if (event.getCurrentItem().getType() == Material.BARRIER && event.getCurrentItem().getItemMeta().getDisplayName().equals(Color.translate("&cTurn off Particle"))) {
             if (plugin.getParticleManager().doesPlayerParticleExist(player)) {
                 plugin.getParticleManager().removePlayerFromParticleMap(player);
-                player.sendMessage(Color.translate("&cJe hebt nu je particle uitgezet."));
+                player.sendMessage(Color.translate("&cYou disabled your particle."));
                 player.closeInventory();
             } else {
-                player.sendMessage(Color.translate("&cJe hebt geen particle aanstaan."));
+                player.sendMessage(Color.translate("&cYou don't have a particle enabled."));
             }
             return;
 
@@ -47,9 +47,9 @@ public class PlayerInventoryClickListener implements Listener {
 
         if (player.hasPermission(lobbyParticles.getPermission())) {
             plugin.getParticleManager().addPlayerToParticleMap(player, lobbyParticles);
-            player.sendMessage(Color.translate("&6Je hebt nu de &c" + lobbyParticles.getItemName() + " &6aangezet."));
+            player.sendMessage(Color.translate("&6You enabled the &c" + lobbyParticles.getItemName() + " &6particle."));
         } else {
-            player.sendMessage(Color.translate("&cJe hebt geen permission om deze particle te gebruiken."));
+            player.sendMessage(Color.translate("&cYou don't have permission to use this command."));
         }
         player.closeInventory();
     }

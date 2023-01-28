@@ -45,6 +45,7 @@ public class ParticleMenu {
     public void setUpParticleMenu() {
         int size = plugin.getParticleManager().getParticlesMapSize()+1;
 
+        //Logic to see how big the inventory needs to be....
         if (size <= 9) {
             size = 9;
         } else if (size <= 18) {
