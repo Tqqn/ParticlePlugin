@@ -36,7 +36,7 @@ public class ParticleMenu {
             inventory.setItem(lobbyParticles.getSlot(), createGuiItem(lobbyParticles.getMenuItem(), lobbyParticles.getItemName()));
             loadedParticlesMaterial.put(createGuiItem(lobbyParticles.getMenuItem(),lobbyParticles.getItemName()), lobbyParticles);
         }
-        inventory.setItem(0, createGuiItem(Material.BARRIER,"&cTurn off Particle"));
+        inventory.setItem(inventory.getSize()-1, createGuiItem(Material.BARRIER,"&cTurn off Particle"));
     }
 
     /**
@@ -46,18 +46,12 @@ public class ParticleMenu {
         int size = plugin.getParticleManager().getParticlesMapSize()+1;
 
         //Logic to see how big the inventory needs to be....
-        if (size <= 9) {
-            size = 9;
-        } else if (size <= 18) {
-            size = 18;
-        } else if (size <= 27) {
-            size = 27;
-        } else if (size <= 36) {
-            size = 36;
-        } else if (size <= 45) {
-            size = 45;
-        } else if (size <= 54) {
-            size = 54;
+        int[] sizes = {9, 18, 27, 36, 45, 54};
+        for (int i = 0; i < sizes.length; i++) {
+            if (size <= sizes[i]) {
+                size = sizes[i];
+                break;
+            }
         }
         this.inventory = Bukkit.createInventory(null, size, Color.translate("&6Particle Menu"));
 

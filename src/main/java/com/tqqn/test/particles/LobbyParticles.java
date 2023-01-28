@@ -5,16 +5,16 @@ import org.bukkit.Particle;
 
 public enum LobbyParticles {
 
-    PARTICLE_LAVADRIP(Particle.DRIP_LAVA, 1, Material.LAVA_BUCKET, 1, "&6&lDrip-Lava Particle", "lobbyplugin.lavadrip"),
-    PARTICLE_HEART(Particle.HEART,1, Material.RED_DYE, 2,"&c&lHeart Particle", "lobbyplugin.heart"),
-    PARTICLE_ANGRY(Particle.VILLAGER_ANGRY,1,Material.DIAMOND_SWORD,3,"&4&lAngry Particle", "lobbyplugin.angry"),
-    PARTICLE_ASH(Particle.ASH,1,Material.BLACK_DYE,4,"&8&lAsh Particle", "lobbyplugin.ash"),
-    PARTICLE_CLOUD(Particle.CLOUD,1,Material.GRAY_DYE,5,"&f&lCloud Particle", "lobbyplugin.cloud"),
-    PARTICLE_CRIT(Particle.CRIT,1,Material.GOLDEN_SWORD,6,"&7&lCrit Particle", "lobbyplugin.crit"),
-    PARTICLE_CRIT_MAGIC(Particle.CRIT_MAGIC,1,Material.POTION,7,"&5&lCrit-Magic Particle", "lobbyplugin.crit.magic"),
-    PARTICLE_ENCHANTMENT(Particle.ENCHANTMENT_TABLE,1,Material.ENCHANTED_BOOK,8,"&b&lEnchantment Particle", "lobbyplugin.enchantment"),
-    PARTICLE_NOTE(Particle.NOTE,1,Material.NOTE_BLOCK,9,"&2&lNote Particle", "lobbyplugin.note"),
-    PARTICLE_BARRIER(Particle.BARRIER,1,Material.BARRIER,10,"&4&lBarrier Particle", "lobbyplugin.barrier");
+    PARTICLE_LAVADRIP(Particle.DRIP_LAVA, 1, Material.LAVA_BUCKET, 0, "&6&lDrip-Lava Particle", "lobbyplugin.lavadrip"),
+    PARTICLE_HEART(Particle.HEART,1, Material.RED_DYE, 1,"&c&lHeart Particle", "lobbyplugin.heart"),
+    PARTICLE_ANGRY(Particle.VILLAGER_ANGRY,1,Material.DIAMOND_SWORD,2,"&4&lAngry Particle", "lobbyplugin.angry"),
+    PARTICLE_ASH(Particle.ASH,1,Material.BLACK_DYE,3,"&8&lAsh Particle", "lobbyplugin.ash"),
+    PARTICLE_CLOUD(Particle.CLOUD,1,Material.GRAY_DYE,4,"&f&lCloud Particle", "lobbyplugin.cloud"),
+    PARTICLE_CRIT(Particle.CRIT,1,Material.GOLDEN_SWORD,5,"&7&lCrit Particle", "lobbyplugin.crit"),
+    PARTICLE_CRIT_MAGIC(Particle.CRIT_MAGIC,1,Material.POTION,6,"&5&lCrit-Magic Particle", "lobbyplugin.crit.magic"),
+    PARTICLE_ENCHANTMENT(Particle.ENCHANTMENT_TABLE,1,Material.ENCHANTED_BOOK,7,"&b&lEnchantment Particle", "lobbyplugin.enchantment"),
+    PARTICLE_NOTE(Particle.NOTE,1,Material.NOTE_BLOCK,8,"&2&lNote Particle", "lobbyplugin.note");
+    //PARTICLE_BARRIER(Particle.BARRIER,1,Material.BARRIER,10,"&4&lBarrier Particle", "lobbyplugin.barrier");
 
     private final Particle particle;
     private final int count;
