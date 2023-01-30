@@ -18,9 +18,6 @@ public class OnLeaveListener implements Listener {
     @EventHandler
     public void OnLeave(PlayerQuitEvent event) {
         Player player = event.getPlayer();
-
-        if (!plugin.getParticleManager().doesPlayerParticleExist(player)) return;
-
-        plugin.getParticleManager().removePlayerFromParticleMap(player);
+        plugin.getParticleManager().removeParticleFromPlayer(player);
     }
 }

@@ -3,7 +3,6 @@ package com.tqqn.test;
 import com.tqqn.test.commands.OpenParticleMenuCommand;
 import com.tqqn.test.listeners.OnLeaveListener;
 import com.tqqn.test.listeners.PlayerInventoryClickListener;
-import com.tqqn.test.listeners.PlayerMoveListener;
 import com.tqqn.test.managers.ParticleManager;
 import com.tqqn.test.menus.ParticleMenu;
 import org.bukkit.Bukkit;
@@ -16,7 +15,7 @@ public final class Particles extends JavaPlugin {
     private final ParticleMenu particleMenu;
 
     public Particles() {
-        this.particleManager = new ParticleManager();
+        this.particleManager = new ParticleManager(this);
         this.particleMenu = new ParticleMenu(this);
     }
 
@@ -63,7 +62,6 @@ public final class Particles extends JavaPlugin {
      */
     public void registerEvents() {
         PluginManager pluginManager = Bukkit.getServer().getPluginManager();
-        pluginManager.registerEvents(new PlayerMoveListener(this), this);
         pluginManager.registerEvents(new PlayerInventoryClickListener(this), this);
         pluginManager.registerEvents(new OnLeaveListener(this), this);
     }

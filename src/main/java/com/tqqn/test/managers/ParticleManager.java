@@ -1,6 +1,8 @@
 package com.tqqn.test.managers;
 
+import com.tqqn.test.Particles;
 import com.tqqn.test.particles.LobbyParticles;
+import com.tqqn.test.tasks.PlayParticleRunnable;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -9,17 +11,16 @@ import java.util.UUID;
 
 public class ParticleManager {
 
+    private final Particles plugin;
+
     private final HashMap<UUID, LobbyParticles> playerLobbyParticles = new HashMap<>();
 
     private final ArrayList<String> customParticles = new ArrayList<>();
 
-    /**
-     * Method to add Player to Particle Map.
-     * @param player Player
-     * @param lobbyParticles LobbyParticles
-     */
-    public void addPlayerToParticleMap(Player player, LobbyParticles lobbyParticles) {
-        playerLobbyParticles.put(player.getUniqueId(), lobbyParticles);
+    private final HashMap<UUID, PlayParticleRunnable> playParticleRunnableHashMap = new HashMap<>();
+
+    public ParticleManager(Particles plugin) {
+        this.plugin = plugin;
     }
 
     /**
@@ -30,22 +31,6 @@ public class ParticleManager {
             customParticles.add(lobbyParticles.name());
         }
     }
-    /**
-     * Method to remove the Player from Particle Map.
-     * @param player Player
-     */
-    public void removePlayerFromParticleMap(Player player) {
-        playerLobbyParticles.remove(player.getUniqueId());
-    }
-
-    /**
-     * Returns the Player loaded Particle.
-     * @param player Player
-     * @return LobbyParticles
-     */
-    public LobbyParticles getPlayerParticle(Player player) {
-        return playerLobbyParticles.get(player.getUniqueId());
-    }
 
     /**
      * Checks if the Player has a particle.
@@ -54,6 +39,40 @@ public class ParticleManager {
      */
     public boolean doesPlayerParticleExist(Player player) {
         return playerLobbyParticles.containsKey(player.getUniqueId());
+    }
+
+    /**
+     * Add a particle to the player.
+     * @param player Player
+     * @param lobbyParticles Particle
+     */
+    public void addParticleToPlayer(Player player, LobbyParticles lobbyParticles) {
+
+        playerLobbyParticles.remove(player.getUniqueId());
+
+        if (playParticleRunnableHashMap.containsKey(player.getUniqueId())) {
+            playParticleRunnableHashMap.get(player.getUniqueId()).cancel();
+            playParticleRunnableHashMap.remove(player.getUniqueId());
+        }
+
+        PlayParticleRunnable playParticleRunnable = new PlayParticleRunnable(plugin.getParticleManager(), lobbyParticles, player);
+        playParticleRunnable.runTaskTimerAsynchronously(plugin, 0, 10L);
+
+        playParticleRunnableHashMap.put(player.getUniqueId(), playParticleRunnable);
+        playerLobbyParticles.put(player.getUniqueId(), lobbyParticles);
+    }
+
+    /**
+     * Remove the equipped particle from the player.
+     * @param player Player
+     */
+    public void removeParticleFromPlayer(Player player) {
+        playerLobbyParticles.remove(player.getUniqueId());
+
+        if (!playParticleRunnableHashMap.containsKey(player.getUniqueId())) return;
+
+        playParticleRunnableHashMap.get(player.getUniqueId()).cancel();
+        playParticleRunnableHashMap.remove(player.getUniqueId());
     }
 
     /**

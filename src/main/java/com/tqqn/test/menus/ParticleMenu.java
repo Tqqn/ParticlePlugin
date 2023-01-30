@@ -45,14 +45,7 @@ public class ParticleMenu {
     public void setUpParticleMenu() {
         int size = plugin.getParticleManager().getParticlesMapSize()+1;
 
-        //Logic to see how big the inventory needs to be....
-        int[] sizes = {9, 18, 27, 36, 45, 54};
-        for (int i = 0; i < sizes.length; i++) {
-            if (size <= sizes[i]) {
-                size = sizes[i];
-                break;
-            }
-        }
+        size = (int) (9 * Math.ceil(size/9.0));
         this.inventory = Bukkit.createInventory(null, size, Color.translate("&6Particle Menu"));
 
         addItemsToInventory();
